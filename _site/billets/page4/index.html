@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Alexandre Grégoire - Culture, société et technologie</title>
+        <meta name="description" content="Le site personnel d'Alexandre Grégoire. Réflexions sur la culture, la société et la technologie.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="author" content="Alexandre Grégoire">
+
+        
+          <!-- site -->
+          <meta property="og:title" content="Alexandre Grégoire | Le site personnel d'Alexandre Grégoire. Réflexions sur la culture, la société et la technologie." />
+          <meta content="website" property="og:type">
+          <meta property="og:url" content="https://alexandregregoire.com" />
+          <meta property="og:description" content="Le site personnel d'Alexandre Grégoire. Réflexions sur la culture, la société et la technologie." />
+          <meta property="og:image" content="http://alexandregregoire.com/images/site.jpg" />
+          <meta name="twitter:image:src" content="http://alexandregregoire.com/images/site.jpg">
+          <meta name="twitter:title" content="Culture, société et technologie | Alexandre Grégoire">
+          <meta name="twitter:description" content="Le site personnel d'Alexandre Grégoire. Réflexions sur la culture, la société et la technologie.">
+        
+
+        <meta property="fb:admins" content="900740127" />
+        <meta property="og:site_name" content="Alexandre Grégoire" />
+        
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="alexandregregoire.com">
+        <meta name="twitter:creator" content="agregoire">
+        <meta name="twitter:site" content="agregoire">
+
+        <link rel="alternate" type="application/rss+xml" title="Alexandre Grégoire" href="https://alexandregregoire.com/feed.xml">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!--[if lt IE 9]>
+        <script src="dist/html5shiv.js"></script>
+        <![endif]-->
+
+        <script type="text/javascript" src="//use.typekit.net/clr2cpz.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1><a href="/">Alexandre</a> <span><a href="/">Grégoire</a></span></h1>
+              <nav>
+                <a class="extra" href="/">accueil</a> | 
+                <a class="extra" href="/billets">blogue</a> | 
+                <a class="extra" href="/archives">archives</a>
+              </nav>
+
+            </div>
+
+            <div class="content">
+              <!-- This loops through the paginated posts -->
+
+  
+    <article class="short">
+      <p>Une <a href="http://www.theparisreview.org/interviews/1217/the-art-of-poetry-no-75-seamus-heaney">entrevue fleuve</a> donnée par Seamus Heaney au Paris Review en 1997. Intéressant !</p>
+
+ <span class="meta"><a rel="canonical" href="/liens/2013/09/18/seamus-heaney-paris-review/">18 septembre 2013</a></span>
+    </article>
+  
+
+  
+    <article class="post">
+      <h2><a href="/billets/2013/09/15/dotfiles/">Quelques trucs utiles dans mes dotfiles</a></h2>
+      <p class="meta"><a href="/billets/2013/09/15/dotfiles/">15 septembre 2013</a></p>
+
+      <div class="body">
+      <p>En mettant mes <a href="https://github.com/agregoire/dotfiles">dotfiles sur GitHub</a> plus tôt dans la journée, je me suis rendu compte que quelques-uns des alias que j’utilise pourraient être utiles à d’autres.</p>
+
+<p>Voici quelques morceaux choisis.</p>
+
+<p>Lorsque je commence à travailler sur un projet, j’ouvre plusieurs fenêtres de terminal (ou plusieurs <em>splits</em>) dans le même répertoire. J’utilise un alias pour copier le chemin du répertoire actuel dans le presse-papier d’OS X.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">alias </span><span class="nv">pwdc</span><span class="o">=</span><span class="s2">"pwd | tr -d '</span><span class="se">\n</span><span class="s2">' | pbcopy"</span></code></pre></figure>
+
+<p>Des commandes pour naviguer entre les répertoires plus rapidement:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">alias </span><span class="nv">u</span><span class="o">=</span><span class="s1">'cd ..'</span>
+<span class="nb">alias </span><span class="nv">uu</span><span class="o">=</span><span class="s1">'cd ../..'</span>
+<span class="nb">alias </span><span class="nv">uuu</span><span class="o">=</span><span class="s1">'cd ../../..'</span>
+<span class="nb">alias </span><span class="nv">uuuu</span><span class="o">=</span><span class="s1">'cd ../../../..'</span></code></pre></figure>
+
+<p>Je me sers souvent de <code>history</code> pour me souvenir d’une commande utilisée récemment. L’alias qui suit permet de chercher dans l’historique des commandes à l’aide de grep et de montrer les dix derniers résultats. Il peut être invoqué avec la commande <code>hgrep</code>.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">function </span>_hgrep<span class="o">()</span> <span class="o">{</span> <span class="nb">history</span> | <span class="nb">grep</span> <span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span> | <span class="nb">tail</span> <span class="nt">-n</span> 10<span class="p">;</span><span class="o">}</span><span class="p">;</span> <span class="nb">alias </span><span class="nv">hgrep</span><span class="o">=</span><span class="s1">'_hgrep'</span></code></pre></figure>
+
+<p>Un alias pour trouver son adresse ip publique:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">alias </span><span class="nv">myip</span><span class="o">=</span><span class="s1">'curl -s http://checkip.dyndns.org/ | grep -o "[[:digit:].]\+"'</span></code></pre></figure>
+
+<p>Et finalement, deux alias utiles aux développeurs Rails. Le premier montre les dernières migrations. Le second ouvre la dernière migration dans l’éditeur par défaut.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">alias </span><span class="nv">lm</span><span class="o">=</span><span class="s1">'$EDITOR db/migrate/`ls -t db/migrate/ | head -1`'</span>
+<span class="nb">alias </span><span class="nv">llm</span><span class="o">=</span><span class="s1">'ls db/migrate | tail'</span></code></pre></figure>
+
+
+      </div>
+    </article>
+  
+
+  
+    <article class="post">
+      <h2><a href="/billets/2013/09/14/dialogues-socratiques-platon/">Les dialogues socratiques de Platon</a></h2>
+      <p class="meta"><a href="/billets/2013/09/14/dialogues-socratiques-platon/">14 septembre 2013</a></p>
+
+      <div class="body">
+      <p>J’ai commencé à écouter l’excellente série de podcasts <a href="http://www.historyofphilosophy.net">History of Philosophy without any gaps</a> il y a quelques semaines. Je viens de débuter les premiers épisodes à propos de Platon.</p>
+
+<p>Je me souviens avoir étudié quelques-uns des dialogues socratiques lorsque j’étais à l’université. Les ayant lu en français, je ne saisis pas toujours à quel texte Peter Adamson réfère.</p>
+
+<p>J’ai donc rassemblé une correspondance entre les titres anglais et français des dialogues socratiques. La voici:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Nom anglais</th>
+      <th style="text-align: center">Nom français</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">First Alcibiades</td>
+      <td style="text-align: center">Alcibiade majeur</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Second Alcibiades</td>
+      <td style="text-align: center">Alcibiade mineur</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Apology</td>
+      <td style="text-align: center">Apologie de Socrate</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Charmides</td>
+      <td style="text-align: center">Charmide (ou Sur la sagesse)</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Clitophon</td>
+      <td style="text-align: center">Clitophon</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Cratylus</td>
+      <td style="text-align: center">Cratyle</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Critias</td>
+      <td style="text-align: center">Critias</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Crito</td>
+      <td style="text-align: center">Criton</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Epinomis</td>
+      <td style="text-align: center">Épinomis</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Euthydemus</td>
+      <td style="text-align: center">Euthydème</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Euthyphro</td>
+      <td style="text-align: center">Euthyphron</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Gorgias</td>
+      <td style="text-align: center">Gorgias</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Hippias Major</td>
+      <td style="text-align: center">Hippias majeur</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Hippias Minor</td>
+      <td style="text-align: center">Hippias mineur</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Ion</td>
+      <td style="text-align: center">Ion</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Laches</td>
+      <td style="text-align: center">Lachès</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Lysis</td>
+      <td style="text-align: center">Lysis</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Meno</td>
+      <td style="text-align: center">Ménon</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Parmenides</td>
+      <td style="text-align: center">Parménide</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Protagoras</td>
+      <td style="text-align: center">Protagoras</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Phaedo</td>
+      <td style="text-align: center">Phédon</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Phaedrus</td>
+      <td style="text-align: center">Phèdre</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Philebus</td>
+      <td style="text-align: center">Philèbe</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Republic</td>
+      <td style="text-align: center">La République</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Sophist</td>
+      <td style="text-align: center">Le Sophiste</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Statesman</td>
+      <td style="text-align: center">Le Politique</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Symposium</td>
+      <td style="text-align: center">Le Banquet</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Theaetetus</td>
+      <td style="text-align: center">Théétète</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Timaeus</td>
+      <td style="text-align: center">Timée</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Les titres proviennent de Wikipédia.</p>
+
+
+      </div>
+    </article>
+  
+
+  
+    <article class="short">
+      <p>Dans le blogue Canadian Whisky: <a href="http://www.canadianwhisky.org/news-views/why-is-canadian-whisky-called-rye.html">Why is Canadian whisky called rye?</a></p>
+
+ <span class="meta"><a rel="canonical" href="/liens/2013/09/03/why-is-canadian-whisky-called-rye/">3 septembre 2013</a></span>
+    </article>
+  
+
+  
+    <article class="short">
+      <blockquote>
+  <p>Lorsque le langage, en dernier lieu, n’est pensé ni dans un imaginaire de la monnaie-or, ni même dans un imaginaire du billet de banque convertible, lorsqu’il est identifié à la monnaie <em>conventionnelle</em> ou <em>fictive</em>, à cours forcé, alors, c’est un moment véritablement critique de la confiance dans la valeur du langage qui s’annonce. Cette crise touche la philosophie comme la littérature, et elle atteint aussi, et peut-être d’abord, la théorie même du langage. On peut affirmer qu’un des courants majeurs des théories contemporaines du langage, à savoir le courant qui part de Saussure et se développe dans ls structuralisme linguistique, est tout entier fondé sur un imaginaire de l’<em>inconvertibilité</em>. L’affirmation de Saussure suivant laquelle la valeur en linguistique n’a pas de racine dans les choses et leurs rapports naturels, ou celle de Hjelmslev qui, rapprochant valeur marchande et valeur linguistique, énonce que dans la langue, il n’y a rien de comparable à l’<em>étalon</em>, correspondent fidèlement à une conception du langage qui ferait de lui l’homologue d’une monnaie conventionnelle. Rien n’enracine la valeur linguistique dans un dehors du langage.<br /><br />
+— <cite>Jean-Joseph Goux, Les monnayeurs du langage, Galilée, 1984, p. 31</cite></p>
+</blockquote>
+ <span class="meta"><a rel="canonical" href="/citations/2013/09/01/inconvertibilite-langage/">1er septembre 2013</a></span>
+    </article>
+  
+
+  
+    <article class="post">
+      <h2><a href="/billets/2013/09/01/digging-seamus-heaney/">Décès de Seamus Heaney</a></h2>
+      <p class="meta"><a href="/billets/2013/09/01/digging-seamus-heaney/">1er septembre 2013</a></p>
+
+      <div class="body">
+      <p>Seamus Heaney <a href="http://www.theguardian.com/books/2013/aug/30/seamus-heaney">est décédé</a> vendredi dernier à l’âge de 74 ans. J’ai connu son oeuvre sur le tard en tombant sur son poème <em>Route 110</em> (<a href="http://www.griffinpoetryprize.com/from-route-110-2/">extrait</a>) dans l’anthologie du Griffin Poetry Prize de 2011. Le poème provenait de <em>Human Chain</em>, son dernier recueil.</p>
+
+<p>J’ai été frappé par le monde de Heaney qui mélange les références à l’univers antique, aux oeuvres anglo-saxones et au climat politique de l’Irlande contemporaine.</p>
+
+<p>En voyage à New York il y a quelques semaines, j’ai acheté <em>Death of a Naturalist</em>, un de ses premiers recueils. Voici une lecture montée par la BBC du premier poème de ce recueil, <em>Digging</em>:</p>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed/dIzJgbNANzk" frameborder="0" allowfullscreen=""></iframe></div>
+
+
+      </div>
+    </article>
+  
+
+  
+    <article class="short">
+      <p>Le Devoir vient de publier une belle <a href="http://www.ledevoir.com/societe/actualites-en-societe/385013/debarquer-sur-un-mythe">série</a> <a href="http://www.ledevoir.com/societe/actualites-en-societe/385107/creux-de-vague">de</a> <a href="http://www.ledevoir.com/societe/actualites-en-societe/385191/le-petrole-divise-les-insulaires">quatre</a> <a href="http://www.ledevoir.com/societe/actualites-en-societe/385307/que-faire-de-cette-ile-mythique">articles</a> à propos d’Anticosti. Ça m’a permis de voir outre le fantasme de pêche et les gaz de schiste.</p>
+
+ <span class="meta"><a rel="canonical" href="/liens/2013/08/16/anticosti/">16 août 2013</a></span>
+    </article>
+  
+
+  
+    <article class="short">
+      <blockquote><strong>Les injonctions se sont révélées inapplicables. En quoi la loi spéciale sera plus efficace&#160;?</strong><br/>
+Elle va créer une forme d’infraction qui n’existe pas actuellement. En garantissant l’accès à l’éducation dans un environnement paisible et sécuritaire, on interdira de bloquer les locaux ou de perturber les classes, point à la ligne. Ceux qui tenteront de le faire seront coupables d’une infraction dont ils devront répondre devant un juge, où ils pourront se défendre. Ça va faciliter le travail des policiers, car c’est plus facile à administrer et à faire respecter qu’une injonction. Celles-ci n’ont pas fonctionné parce que les personnes visées - souvent les directions d’établissement - n’étaient pas capables de les faire respecter. Pourquoi&#160;? Parce que des tiers bloquaient les portes. Et il aurait fallu passer par des outrages au tribunal pour régler le problème. Sauf que sur le fond, ces outrages n’auraient pas visé ceux qui bloquaient l’accès… Ça ne marchait pas dans le contexte. La loi sera plus efficace en ce sens.</blockquote>&#8212;<a href="http://www.ledevoir.com/politique/quebec/350280/une-loi-assez-habile-estime-l-ex-juge-coupal"><em>«&#160;Une loi assez habile&#160;», estime l’ex-juge Coupal</em></a>, Le Devoir, 17 mai 2012.
+ <span class="meta"><a rel="canonical" href="/citations/2012/05/17/les-injonctions-se-sont-revelees-inapplicables-en/">17 mai 2012</a></span>
+    </article>
+  
+
+  
+    <article class="short">
+      <style>.embed-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/WLrt7-kIgIM' frameborder='0' allowfullscreen></iframe></div> <span class="meta"><a rel="canonical" href="/liens/2011/06/03/amon-tobin-isam-live/">3 juin 2011</a></span>
+    </article>
+  
+
+  
+    <article class="short">
+      <a href="http://hint.fm/reproduction/index.html">The Art Of Reproduction</a><br/><blockquote>
+  <p>For a series of famous artworks, we&#8217;ve taken fragments from different reproductions found on the web, and (with a nod to David Hockney) assembled them back into wholes. In a few cases we&#8217;ve also created compositions made from the same detail across a set of different reproductions.</p>
+</blockquote>
+ <span class="meta"><a rel="canonical" href="/citations/2011/05/15/the-art-of-reproduction/">15 mai 2011</a></span>
+    </article>
+  
+
+
+<!-- Pagination links -->
+<nav class="pagination">
+  
+    <a href="/billets/page3" class="previous">&larr;</a>
+  
+  <span class="page_number ">4/10</span>
+  
+    <a href="/billets/page5" class="next">&rarr;</a>
+  
+</nav>
+<br style="clear: left">
+            </div>
+
+            <div class="footer">
+              <div class="contact">
+                <ul>
+                  <li>
+                    <script type="text/javascript">
+//<![CDATA[
+<!--
+var x="function f(x){var i,o=\"\",ol=x.length,l=ol;while(x.charCodeAt(l/13)!" +
+"=48){try{x+=x;l+=l;}catch(e){}}for(i=l-1;i>=0;i--){o+=x.charAt(i);}return o" +
+".substr(0,ol);}f(\")67,\\\"4>6%)4h';8l+?<#\\\\\\\\600\\\\OQ520\\\\520\\\\23" +
+"0\\\\120\\\\W200\\\\130\\\\520\\\\^720\\\\100\\\\730\\\\300\\\\310\\\\330\\" +
+"\\200\\\\610\\\\G700\\\\700\\\\400\\\\710\\\\GD*efu771\\\\q1y30/Pfej&kodidB" +
+"dr720\\\\220\\\\330\\\\630\\\\010\\\\630\\\\V220\\\\400\\\\120\\\\230\\\\22" +
+"0\\\\n\\\\420\\\\430\\\\610\\\\T200\\\\030\\\\700\\\\300\\\\010\\\\500\\\\E" +
+":X200\\\\600\\\\020\\\\t\\\\@>b771\\\\t56<,>$\\\"\\\\z'<4=:-\\\"\\\\(\\\"(f" +
+"};o nruter};))++y(^)i(tAedoCrahc.x(edoCrahCmorf.gnirtS=+o;721=%y;i=+y)67==i" +
+"(fi{)++i;l<i;0=i(rof;htgnel.x=l,\\\"\\\"=o,i rav{)y,x(f noitcnuf\")"         ;
+while(x=eval(x));
+//-->
+//]]>
+</script>
+
+                  </li>
+
+                  <li>
+                    <a href="https://instagram.com/alexgregoire" target="_blank">
+                      <i class="icon-instagram icon-2x"></i> 
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="http://ca.linkedin.com/in/alexandregregoire/" target="_blank">
+                      <i class="icon-linkedin-sign icon-2x"></i> 
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="/feed.xml">
+                      <i class="icon-rss icon-2x"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-37129932-1']);
+      _gaq.push(['_setDomainName', 'alexandregregoire.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+</html>

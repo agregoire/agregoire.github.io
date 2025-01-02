@@ -1,0 +1,13 @@
+name: Alexandre Grégoire
+description: "Le site personnel d'Alexandre Grégoire. Réflexions sur la culture, la société et la technologie."
+url: "https://alexandregregoire.com"
+subtitle: Homo Sapiens
+permalink: pretty
+exclude: ['Gemfile', "Gemfile.lock", "watch.sh", "new_post.sh"]
+sass:
+  syntax: scss
+  style:  nested
+markdown: kramdown
+paginate: 10
+paginate_path: "/billets/page:num/"
+locale: fr

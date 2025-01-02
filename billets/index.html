@@ -1,0 +1,40 @@
+---
+layout: default
+title: Culture, société et technologie
+---
+
+<!-- This loops through the paginated posts -->
+{% for post in paginator.posts %}
+  {% if post.categories contains 'billets' %}
+    <article class="post">
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <p class="meta"><a href="{{ post.url }}">{{ post.date | localize: ":medium" | jgsub: "^ ","" | naturalize }}</a></p>
+
+      <div class="body">
+      {{ post.content }}
+      </div>
+    </article>
+  {% else %}
+    <article class="short">
+      {{post.content}} <span class="meta"><a rel="canonical" href="{{ post.url }}">{{ post.date | localize: ":medium" | jgsub: "^ ","" | naturalize }}</a></span>
+    </article>
+  {% endif %}
+{% endfor %}
+
+<!-- Pagination links -->
+<nav class="pagination">
+  {% if paginator.previous_page == 1 %}
+    <a href="/" class="previous">&larr;</a>
+  {% elsif paginator.previous_page %}
+    <a href="/billets/page{{ paginator.previous_page }}" class="previous">&larr;</a>
+  {% else %}
+    <span class="previous"></span>
+  {% endif %}
+  <span class="page_number ">{{ paginator.page }}/{{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="/billets/page{{ paginator.next_page }}" class="next">&rarr;</a>
+  {% else %}
+    <span class="next "></span>
+  {% endif %}
+</nav>
+<br style="clear: left">

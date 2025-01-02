@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="post">
+  <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+  <p class="meta"><a href="{{ page.url }}">{{ page.date | localize: ":medium" | jgsub: "^ ","" | naturalize }}</a></p>
+
+  <div class="body">
+  {{ content }}
+  </div>
+</article>
