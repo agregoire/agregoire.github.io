@@ -214,7 +214,7 @@ summary: "Quelques statistiques à propos des forages au Québec."
 <p>J'étais aussi curieux de voir où et quand le Québec a été foré. J'ai reproduit la carte que Jean-Hugues avait créée pour Le Devoir, mais je l'ai bonifiée d'une ligne du temps animée. Un clic sur le lien ci-dessous vous y amènera. Une fois la carte visible, vous pouvez déclencher l'animation en cliquant sur l'icône à droite de l'année.</p>
 
 <div class="lab_link">
-   <a href="http://labo.alexandregregoire.com/histoire-forages-quebec/" target="_blank" class="btn-large">Voir la carte <i class="icon-globe icon"></i></a>
+   <a href="https://alexandregregoire.com/qc-drilling-timeline/" target="_blank" class="btn-large">Voir la carte <i class="icon-globe icon"></i></a>
 </div>
 
 <p>Chaque forage sur la carte est rouge lorsqu'il est actif et gris lorsqu'il ne l'est plus. Certains forages s'étendent sur plus d'un an. Lorsque les données l'indiquent, le forage est affiché pendant plus d'une année.</p>
